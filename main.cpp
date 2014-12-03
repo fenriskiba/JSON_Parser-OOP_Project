@@ -13,10 +13,10 @@ int main(int argc, char* argv[])
 {
     JSON_Object* json;
     
-    string givenJSON;
-    cin >> givenJSON;
+    using iter = std::istreambuf_iterator<char>;
+	string s(iter(std::cin), iter());
     
-    stringstream jsonStream(givenJSON);
+    stringstream jsonStream(s);
     
     json = (JSON_Object*)ParseJsonObject(jsonStream);
     

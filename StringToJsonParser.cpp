@@ -174,7 +174,7 @@ JSON_Value* ParseJsonArray(std::stringstream& input)
     
     //Loop through each character until you find the end ]
     while(input.peek() != ']')
-    {
+    {   
         JSON_Value* elementValue;
         
         deleteSpace(input);
