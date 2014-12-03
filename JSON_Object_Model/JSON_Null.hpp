@@ -12,6 +12,7 @@
 class JSON_Null : public JSON_Value
 {
     public:
+        JSON_Null(){}
         std::string GetType();
 };
 

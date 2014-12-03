@@ -431,5 +431,45 @@ JSON_Value* ParseJsonBool(std::stringstream& input)
     return jsonBool;
 }
 
-JSON_Value* ParseJsonNull(std::stringstream& input){return NULL;}
+JSON_Value* ParseJsonNull(std::stringstream& input)
+{
+    if(input.peek() == 'n')
+    {
+        input.get();
+    }
+    else
+    {
+        return NULL;
+    }
+    
+    if(input.peek() == 'u')
+    {
+        input.get();
+    }
+    else
+    {
+        return NULL;
+    }
+    
+    if(input.peek() == 'l')
+    {
+        input.get();
+    }
+    else
+    { 
+        return NULL;
+    }
+    
+    if(input.peek() == 'l')
+    {
+        input.get();
+    }
+    else
+    {
+        return NULL;
+    }
+    
+    JSON_Null* jsonNull = new JSON_Null;
+    return jsonNull;
+}
 
