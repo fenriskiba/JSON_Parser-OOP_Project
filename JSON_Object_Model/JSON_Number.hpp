@@ -18,6 +18,7 @@ class JSON_Number : public JSON_Value
 {
     public:
         double value;
+        JSON_Number(){}
         JSON_Number(double d) : value(d){}
         JSON_Number(std::string s) : value(JsonToNumber(s)){}
         std::string GetType();

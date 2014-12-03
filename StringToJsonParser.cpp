@@ -299,7 +299,42 @@ JSON_Value* ParseJsonString(std::stringstream& input)
     return jsonString;
 }
 
-JSON_Value* ParseJsonNumber(std::stringstream& input){return NULL;}
+JSON_Value* ParseJsonNumber(std::stringstream& input)
+{
+    string numberString;
+    bool hasDecimal = false;
+    bool isScienfic = false;
+    
+    if(input.peek() == '-')
+    {
+        numberString += input.get();
+    }
+    
+    while(isdigit(input.peek()))
+    {
+        numberString += input.get();
+        if(!hasDecimal && input.peek() == '.')
+        {
+            hasDecimal = true;
+            numberString += input.get();
+        }
+        else if(!isScienfic && (input.peek() == 'e' || input.peek() == 'E'))
+        {
+            isScienfic = true;
+            numberString += input.get();
+            
+            if(input.peek() == '-')
+            {
+                numberString += input.get();
+            }
+        }
+    }
+    
+    JSON_Number* jsonNumber = new JSON_Number(numberString);
+    
+    return jsonNumber;
+}
+
 JSON_Value* ParseJsonBool(std::stringstream& input){return NULL;}
 JSON_Value* ParseJsonNull(std::stringstream& input){return NULL;}
 
