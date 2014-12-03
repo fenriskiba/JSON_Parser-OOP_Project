@@ -11,11 +11,14 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    //JSON_Object* json;
+    JSON_Object* json;
     
     string givenJSON;
     cin >> givenJSON;
     
+    stringstream jsonStream(givenJSON);
+    
+    json = (JSON_Object*)ParseJsonObject(jsonStream);
     
     
     return 0;

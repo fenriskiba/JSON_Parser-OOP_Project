@@ -6,7 +6,8 @@ project(polynomial CXX)
 cmake_minimum_required(VERSION 2.8)
 
 # Enable compilation with C++11
-set(CMAKE_CXX_FLAGS "-Wall -Werror -std=c++11")
+#set(CMAKE_CXX_FLAGS "-Wall -Werror -std=c++11")
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
 
 # Add an executable program to be built from the
 # given source code files.
