@@ -178,56 +178,50 @@ JSON_Value* ParseJsonArray(std::stringstream& input)
         JSON_Value* elementValue;
         
         deleteSpace(input);
-       
-        if(input.peek() == ':')
+        
+        //figure out the type of value and send it to be parsed
+        if(input.peek() == '{')
+        {
+            //Object
+            elementValue = ParseJsonObject(input);
+        }
+        else if(input.peek() == '[')
+        {
+            //Array
+            elementValue = ParseJsonArray(input);
+        }
+        else if(input.peek() == '\"')
+        {
+            //String
+            elementValue = ParseJsonString(input);
+        }
+        else if(isdigit(input.peek()) || input.peek() == '-')
+        {
+            //Number
+            elementValue = ParseJsonNumber(input);
+        }
+        else if(input.peek() == 't' || input.peek() == 'f')
+        {
+            //Bool
+            elementValue = ParseJsonBool(input);
+        }
+        else
+        {
+            //Null
+            elementValue = ParseJsonNull(input);
+        }
+        
+        deleteSpace(input);
+        
+        //Deal with the , between elements
+        if(input.peek() == ',')
         {
             input.get();
-            deleteSpace(input);
-            
-            //figure out the type of value and send it to be parsed
-            if(input.peek() == '{')
-            {
-                //Object
-                elementValue = ParseJsonObject(input);
-            }
-            else if(input.peek() == '[')
-            {
-                //Array
-                elementValue = ParseJsonArray(input);
-            }
-            else if(input.peek() == '\"')
-            {
-                //String
-                elementValue = ParseJsonString(input);
-            }
-            else if(isdigit(input.peek()) || input.peek() == '-')
-            {
-                //Number
-                elementValue = ParseJsonNumber(input);
-            }
-            else if(input.peek() == 't' || input.peek() == 'f')
-            {
-                //Bool
-                elementValue = ParseJsonBool(input);
-            }
-            else
-            {
-                //Null
-                elementValue = ParseJsonNull(input);
-            }
-            
-            deleteSpace(input);
-            
-            //Deal with the , between elements
-            if(input.peek() == ',')
-            {
-                input.get();
-            }
-            
-            deleteSpace(input);
-            
-            parsedArray->push_back(elementValue);
         }
+        
+        deleteSpace(input);
+        
+        parsedArray->push_back(elementValue);
     }
     
     input.get();
