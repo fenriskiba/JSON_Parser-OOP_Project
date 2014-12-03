@@ -8,15 +8,13 @@
 
 #include "JSON_Value.hpp"
 
-std::string ToLower(std::string s);
-
 //Inherits from JSON_Value so it can be used in the value map or vector of JSON_Object or JSON_Array
 class JSON_Bool : public JSON_Value
 {
     public:
         bool value;
         JSON_Bool(bool b) : value(b){}
-        JSON_Bool(string s) : value(ToLower(s) == "true" ? true : false){}
+        JSON_Bool(std::string s) : value(s == "true" ? true : false){}
         std::string GetType();
 };
 

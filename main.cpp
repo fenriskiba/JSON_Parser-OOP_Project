@@ -7,6 +7,7 @@ using namespace std;
 
 #include <iostream>
 #include "JSON_Object_Model/JSON_Object_Model.hpp"
+#include "StringToJsonParser.hpp"
 
 int main(int argc, char* argv[])
 {

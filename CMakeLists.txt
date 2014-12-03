@@ -10,4 +10,4 @@ set(CMAKE_CXX_FLAGS "-Wall -Werror -std=c++11")
 
 # Add an executable program to be built from the
 # given source code files.
-add_executable(json main.cpp JSON_Object_Model/JSON_Array.cpp JSON_Object_Model/JSON_Bool.cpp JSON_Object_Model/JSON_Number.cpp JSON_Object_Model/JSON_Object.cpp JSON_Object_Model/JSON_String.cpp JSON_Object_Model/JSON_Null.cpp)
+add_executable(json main.cpp JSON_Object_Model/JSON_Array.cpp JSON_Object_Model/JSON_Bool.cpp JSON_Object_Model/JSON_Number.cpp JSON_Object_Model/JSON_Object.cpp JSON_Object_Model/JSON_String.cpp JSON_Object_Model/JSON_Null.cpp StringToJsonParser.cpp)
