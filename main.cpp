@@ -3,11 +3,11 @@
   Homework 4 - JSON
 */
 
-using namespace std;
-
 #include <iostream>
 #include "JSON_Object_Model/JSON_Object_Model.hpp"
 #include "StringToJsonParser.hpp"
+
+using namespace std;
 
 int main(int argc, char* argv[])
 {

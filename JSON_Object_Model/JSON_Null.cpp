@@ -3,9 +3,9 @@
   Homework 4 - JSON
 */
 
-using namespace std;
-
 #include "JSON_Null.hpp"
+
+using namespace std;
 
 std::string JSON_Null::GetType()
 {

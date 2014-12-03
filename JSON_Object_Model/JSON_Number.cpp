@@ -3,9 +3,9 @@
   Homework 4 - JSON
 */
 
-using namespace std;
-
 #include "JSON_Number.hpp"
+
+using namespace std;
 
 std::string JSON_Number::GetType()
 {
