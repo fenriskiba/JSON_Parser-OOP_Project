@@ -13,6 +13,7 @@ class JSON_String : public JSON_Value
 {
     public:
         std::string value;
+        JSON_String(){}
         JSON_String(std::string s) : value(s){}
         std::string GetType();
 };

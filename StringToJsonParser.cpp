@@ -235,7 +235,70 @@ JSON_Value* ParseJsonArray(std::stringstream& input)
     return parsedArray;
 }
 
-JSON_Value* ParseJsonString(std::stringstream& input){return NULL;}
+JSON_Value* ParseJsonString(std::stringstream& input)
+{
+    JSON_String* jsonString = new JSON_String();
+    
+    //Start with an empty string
+    std::string stringValue = "";
+    
+    //Remove the first "
+    input.get();
+    
+    //Loop through the string until you hit the other "
+    while(input.peek() != '\"')
+    {
+        if(input.peek() == '\\')
+        {
+            //Filter through escape characters
+            stringValue += input.get();
+            switch(input.peek())
+            {
+                case '\"':
+                    stringValue += input.get();
+                    break;
+                case '\\':
+                    stringValue += input.get();
+                    break;
+                case '/':
+                    stringValue += input.get();
+                    break;
+                case 'b':
+                    stringValue += input.get();
+                    break;
+                case 'f':     
+                    stringValue += input.get();
+                    break;
+                case 'n':     
+                    stringValue += input.get();
+                    break;
+                case 'r':     
+                    stringValue += input.get();
+                    break;
+                case 't':     
+                    stringValue += input.get();
+                    break;
+                case 'u':     
+                    stringValue += input.get();//u
+                    stringValue += input.get();//hex character 1
+                    stringValue += input.get();//hex character 2
+                    stringValue += input.get();//hex character 3
+                    stringValue += input.get();//hex character 4
+                    break;
+            }
+        }
+        else
+        {
+            stringValue += input.get();
+        }
+    }
+    input.get();
+    
+    jsonString->value = stringValue;
+    
+    return jsonString;
+}
+
 JSON_Value* ParseJsonNumber(std::stringstream& input){return NULL;}
 JSON_Value* ParseJsonBool(std::stringstream& input){return NULL;}
 JSON_Value* ParseJsonNull(std::stringstream& input){return NULL;}
