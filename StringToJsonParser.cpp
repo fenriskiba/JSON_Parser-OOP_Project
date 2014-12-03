@@ -335,6 +335,101 @@ JSON_Value* ParseJsonNumber(std::stringstream& input)
     return jsonNumber;
 }
 
-JSON_Value* ParseJsonBool(std::stringstream& input){return NULL;}
+JSON_Value* ParseJsonBool(std::stringstream& input)
+{
+    bool trueFalse;
+    
+    if(input.peek() == 't')
+    {
+        trueFalse = true;
+        if(input.peek() == 't')
+        {
+            input.get();
+        }
+        else
+        {
+            return NULL;
+        }
+        
+        if(input.peek() == 'r')
+        {
+            input.get();
+        }
+        else
+        {
+            return NULL;
+        }
+        
+        if(input.peek() == 'u')
+        {
+            input.get();
+        }
+        else
+        { 
+            return NULL;
+        }
+        
+        if(input.peek() == 'e')
+        {
+            input.get();
+        }
+        else
+        {
+            return NULL;
+        }
+	}
+	if(input.peek() == 'f')
+    {
+        trueFalse = false;
+        if(input.peek() == 'f')
+        {
+            input.get();
+        }
+        else
+        {
+            return NULL;
+        }
+        
+        if(input.peek() == 'a')
+        {
+            input.get();
+        }
+        else
+        {
+            return NULL;
+        }
+        
+        if(input.peek() == 'l')
+        {
+            input.get();
+        }
+        else
+        { 
+            return NULL;
+        }
+        
+        if(input.peek() == 's')
+        {
+            input.get();
+        }
+        else
+        {
+            return NULL;
+        }
+        
+        if(input.peek() == 'e')
+        {
+            input.get();
+        }
+        else
+        {
+            return NULL;
+        }
+	}
+	
+	JSON_Bool* jsonBool = new JSON_Bool(trueFalse);	
+    return jsonBool;
+}
+
 JSON_Value* ParseJsonNull(std::stringstream& input){return NULL;}
 

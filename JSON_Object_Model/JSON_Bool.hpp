@@ -13,6 +13,7 @@ class JSON_Bool : public JSON_Value
 {
     public:
         bool value;
+        JSON_Bool(){}
         JSON_Bool(bool b) : value(b){}
         JSON_Bool(std::string s) : value(s == "true" ? true : false){}
         std::string GetType();
