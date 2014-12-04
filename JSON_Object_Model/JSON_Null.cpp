@@ -7,7 +7,7 @@
 
 using namespace std;
 
-std::string JSON_Null::GetType()
+string JSON_Null::GetType()
 {
 	return "null";
 }

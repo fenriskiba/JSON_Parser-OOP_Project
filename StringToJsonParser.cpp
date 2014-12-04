@@ -7,18 +7,18 @@
 
 using namespace std;
 
-void deleteSpace(std::stringstream& input)
+void deleteSpace(stringstream& input)
 {
-    while(std::isspace(input.peek()))
+    while(isspace(input.peek()))
     {
         input.get();
     }
 }
 
-std::string getName(std::stringstream& input)
+string getName(stringstream& input)
 {
     //Start with an empty string
-    std::string name = "";
+    string name = "";
     
     //Remove the first "
     input.get();
@@ -74,7 +74,7 @@ std::string getName(std::stringstream& input)
     return name;
 }
 
-JSON_Value* ParseJsonObject(std::stringstream& input)
+JSON_Value* ParseJsonObject(stringstream& input)
 {
     JSON_Object* parsedObject = new JSON_Object();
     
@@ -161,7 +161,7 @@ JSON_Value* ParseJsonObject(std::stringstream& input)
     return parsedObject;
 }
 
-JSON_Value* ParseJsonArray(std::stringstream& input)
+JSON_Value* ParseJsonArray(stringstream& input)
 {
     JSON_Array* parsedArray = new JSON_Array();
     
@@ -229,12 +229,12 @@ JSON_Value* ParseJsonArray(std::stringstream& input)
     return parsedArray;
 }
 
-JSON_Value* ParseJsonString(std::stringstream& input)
+JSON_Value* ParseJsonString(stringstream& input)
 {
     JSON_String* jsonString = new JSON_String();
     
     //Start with an empty string
-    std::string stringValue = "";
+    string stringValue = "";
     
     //Remove the first "
     input.get();
@@ -293,7 +293,7 @@ JSON_Value* ParseJsonString(std::stringstream& input)
     return jsonString;
 }
 
-JSON_Value* ParseJsonNumber(std::stringstream& input)
+JSON_Value* ParseJsonNumber(stringstream& input)
 {
     string numberString;
     bool hasDecimal = false;
@@ -329,7 +329,7 @@ JSON_Value* ParseJsonNumber(std::stringstream& input)
     return jsonNumber;
 }
 
-JSON_Value* ParseJsonBool(std::stringstream& input)
+JSON_Value* ParseJsonBool(stringstream& input)
 {
     bool trueFalse;
     
@@ -425,7 +425,7 @@ JSON_Value* ParseJsonBool(std::stringstream& input)
     return jsonBool;
 }
 
-JSON_Value* ParseJsonNull(std::stringstream& input)
+JSON_Value* ParseJsonNull(stringstream& input)
 {
     if(input.peek() == 'n')
     {

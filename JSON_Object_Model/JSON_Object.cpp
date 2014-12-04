@@ -7,7 +7,7 @@
 
 using namespace std;
 
-std::string JSON_Object::GetType()
+string JSON_Object::GetType()
 {
 	return "object";
 }

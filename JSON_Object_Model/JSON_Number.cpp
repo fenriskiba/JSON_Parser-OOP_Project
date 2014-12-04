@@ -7,12 +7,12 @@
 
 using namespace std;
 
-std::string JSON_Number::GetType()
+string JSON_Number::GetType()
 {
 	return "number";
 }
 
-double JsonToNumber(std::string fullNumber)
+double JsonToNumber(string fullNumber)
 {
     string baseNumber = "";
     string scientificNotationValue = "";

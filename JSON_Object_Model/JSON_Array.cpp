@@ -7,7 +7,7 @@
 
 using namespace std;
 
-std::string JSON_Array::GetType()
+string JSON_Array::GetType()
 {
     return "array";
 }

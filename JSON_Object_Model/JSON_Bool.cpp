@@ -7,7 +7,7 @@
 
 using namespace std;
 
-std::string JSON_Bool::GetType()
+string JSON_Bool::GetType()
 {
     return "bool";
 }
